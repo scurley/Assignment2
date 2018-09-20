@@ -27,12 +27,13 @@ public class FlatFileReaderCustomer {
 					Customer c = null;
 					String data[] = line.split(";");
 					String customerCode = data[0];
+					String personCode = data[1];
 					//Names
-					String nameTokens[] = data[1].split(",");
+					String nameTokens[] = data[2].split(",");
 					String lastName = nameTokens[0];
 					String firstName = nameTokens[1];
 					//Address
-					String addressTokens[] = data[2].split(",");
+					String addressTokens[] = data[3].split(",");
 					String street = addressTokens[0];
 					String city = addressTokens[1];
 					String state = addressTokens[2];
@@ -40,8 +41,8 @@ public class FlatFileReaderCustomer {
 					String country = addressTokens[4];
 					//Constructing objects
 					address = new Address(city, state, street, zip, country);
-					person = new Person(null, lastName, firstName, null);
-					c = new Customer(customerCode, person, null, address);
+					person = new Person(personCode, null, null, null, null);
+					c = new Customer(customerCode, person, firstName, address);
 					
 					result.add(c);
 				}

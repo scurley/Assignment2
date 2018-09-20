@@ -1,19 +1,23 @@
 package entities;
 
+import java.util.ArrayList;
+
 public class Person {
+	
 	private String personCode;
 	private String firstName;
 	private String lastName;
-	
-	public Person(String personCode, String firstName, String lastName, Address address) {
+	private Address address;
+	ArrayList<String> emailList = new ArrayList<String>();//To store Email Arraylist to save multiple emails
+
+	public Person(String personCode, String firstName, String lastName, Address address, ArrayList<String> emailList) {
 		super();
 		this.personCode = personCode;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.address = address;
+		this.emailList = emailList;
 	}
-	private Address address;
-	
 	public Address getAddress() {
 		return address;
 	}
@@ -37,6 +41,12 @@ public class Person {
 	}
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
+	}
+	public ArrayList<String> getEmailList() {
+		return emailList;
+	}
+	public void setEmailList(ArrayList<String> emailList) {
+		this.emailList = emailList;
 	}
 	
 	
