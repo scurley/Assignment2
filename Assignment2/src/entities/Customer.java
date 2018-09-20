@@ -2,6 +2,11 @@ package entities;
 
 public class Customer {
 	
+	private String customerCode;
+	private Person contact;
+	private String name;
+	private Address address;
+	
 	public Person getContact() {
 		return contact;
 	}
@@ -26,12 +31,11 @@ public class Customer {
 	public void setName(String name) {
 		this.name = name;
 	}
-	private String customerCode;
-	private Person contact;
-	private String name;
-	private Address address;
-	
-	
-	
-
+	public Customer(String customerCode, Person contact, String name, Address address) {
+		super();
+		this.customerCode = customerCode;
+		this.contact = contact;
+		this.name = name;
+		this.address = address;
+	}
 }

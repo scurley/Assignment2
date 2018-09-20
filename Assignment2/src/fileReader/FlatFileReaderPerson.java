@@ -10,7 +10,7 @@ import entities.Person;//imports Person.java file for data
 
 public class FlatFileReaderPerson {
 	
-	public ArrayList<Person> readPerson() {
+	public List<Person> readPerson() {
 		Scanner s = null;
 		
 		try {
@@ -40,13 +40,13 @@ public class FlatFileReaderPerson {
 					result.add(p);
 				}
 			}
+			s.close();//closes scanner and returns array
+			return result;
 			
 		} catch(Exception e) {
 			e.printStackTrace();
 			return null;
 		}
-		s.close();//closes scanner and returns array
-		return readPerson();
 	}
 	
 	
