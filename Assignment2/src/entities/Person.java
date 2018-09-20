@@ -4,6 +4,14 @@ public class Person {
 	private String personCode;
 	private String firstName;
 	private String lastName;
+	
+	public Person(String personCode, String firstName, String lastName, Address address) {
+		super();
+		this.personCode = personCode;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.address = address;
+	}
 	private Address address;
 	
 	public Address getAddress() {

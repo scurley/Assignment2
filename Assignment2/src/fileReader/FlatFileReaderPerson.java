@@ -1,25 +1,26 @@
 package fileReader;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import entities.Address;//imports Address
 import entities.Person;//imports Person.java file for data
 
 public class FlatFileReaderPerson {
 	
 	public ArrayList<Person> readPerson() {
+		Scanner s = null;
 		
 		try {
-			File f = new File("data/Persons.dat");
-			Scanner s = new Scanner(f);
+			s  = new Scanner(new File("data/Persons.dat"));
 			s.nextLine();//reads the number of records from the first line
 			List<Person> result = new ArrayList<Person>();
+			Address address = null;
 			
 			while(s.hasNext()) {
-				String line = s.nextLine();
+				String line = s.nextLine();//Reads Variables and give them variables
 				if(!line.trim().isEmpty()) {
 					Person p = null;
 					String data[] = line.split(";");
@@ -33,7 +34,8 @@ public class FlatFileReaderPerson {
 					String state = addressTokens[2];
 					String zip = addressTokens[3];
 					String country = addressTokens[4];
-					
+					address = new Address(city, state, street, zip, country);//sends variables to constructors
+					p = new Person (personCode, lastName, firstName, address);
 					
 					result.add(p);
 				}
@@ -41,8 +43,10 @@ public class FlatFileReaderPerson {
 			
 		} catch(Exception e) {
 			e.printStackTrace();
+			return null;
 		}
-		return result;
+		s.close();//closes scanner and returns array
+		return readPerson();
 	}
 	
 	
