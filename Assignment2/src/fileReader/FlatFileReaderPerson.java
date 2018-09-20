@@ -6,13 +6,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import com.datacontainers.Address;
-import com.datacontainers.Person;
-
+import entities.Person;//imports Person.java file for data
 
 public class FlatFileReaderPerson {
 	
-	public static List<Person> readPerson() {
+	public ArrayList<Person> readPerson() {
 		
 		try {
 			File f = new File("data/Persons.dat");
@@ -26,9 +24,9 @@ public class FlatFileReaderPerson {
 					Person p = null;
 					String data[] = line.split(";");
 					String personCode = data[0];
-					String nameTokens[] = 
-					String lastName = data[0];
-					String firstName = data[1];
+					String nameTokens[] = data[1].split(",");
+					String lastName = nameTokens[0];
+					String firstName = nameTokens[1];
 					String addressTokens[] = data[2].split(",");
 					String street = addressTokens[0];
 					String city = addressTokens[1];
@@ -37,28 +35,10 @@ public class FlatFileReaderPerson {
 					String country = addressTokens[4];
 					
 					
-					
-					
-					
-//					if(tokens.length == 6) {
-//						hourlyPayRate = Double.parseDouble(tokens[4]);
-//						hoursWorked = Double.parseDouble(tokens[5]);
-//					} else if(tokens.length == 5) {
-//						annualSalary = Double.parseDouble(tokens[4]);
-//					}
-//					
-//					if(tokens[0].equals("E")) {
-//						e = new salaryEmployee(id, firstName, lastName, title, annualSalary); //TODO: modify this
-//					} else if(tokens[0].equals("S")) {
-//						e = new Staff(id, firstName, lastName, title, hourlyPayRate, hoursWorked); //TODO: modify this
-//					} else if(tokens[0].equals("T")) {
-//						e = new Temporary(id, firstName, lastName, title, hourlyPayRate,
-//								hoursWorked); //TODO: modify this
-//					}
-					
 					result.add(p);
 				}
 			}
+			
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
