@@ -23,7 +23,7 @@ public class JsonWriter {
 			jsonPrinterWriter = new PrintWriter(jsonOutput);
 		}
 		catch(FileNotFoundException e) {
-			e.printStackTrace();
+			e.printStackTrace();// need to write the info converter *******************************
 		}
 	}
 }
