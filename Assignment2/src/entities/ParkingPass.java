@@ -8,6 +8,13 @@ public class ParkingPass extends Product{
 		super(productCode);
 		this.parkingFee = parkingFee;
 	}
-	
+
+	public double getParkingFee() {
+		return parkingFee;
+	}
+
+	public void setParkingFee(double parkingFee) {
+		this.parkingFee = parkingFee;
+	}
 
 }

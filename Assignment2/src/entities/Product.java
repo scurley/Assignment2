@@ -1,6 +1,6 @@
 package entities;
 
-public abstract class Product {
+public abstract class Product{
 	private String productCode;
 
 	public String getProductCode() {
